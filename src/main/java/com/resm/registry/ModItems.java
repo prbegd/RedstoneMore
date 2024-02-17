@@ -12,7 +12,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
 
-    public static final Item EXAMPLE_ITEM = registerItem("example_item", new Item(new FabricItemSettings()));
+    public static final Item EXAMPLE_ITEM = registerItem("example_item", new Item(new FabricItemSettings()), ModItemGroup.MORE_REDSTONE);
 
     public static Item registerItem(String name, Item item, RegistryKey<ItemGroup>... itemGroups) {
         Item registeredItem = Registry.register(Registries.ITEM, new Identifier(RedstoneMore.MOD_ID, name), item);

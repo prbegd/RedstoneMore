@@ -1,3 +1,4 @@
 {
-  "item.redstone_more.example_item": "Example_Item"
+  "item.redstone_more.example_item": "Example_Item",
+  "itemgroup.redstone_more.moreRedstone": "MoreRedstone"
 }
