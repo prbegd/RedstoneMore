@@ -26,11 +26,7 @@
 		]
 	},
 	"mixins": [
-		"redstone_more.mixins.json",
-		{
-			"config": "redstone_more.client.mixins.json",
-			"environment": "client"
-		}
+		"redstone_more.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.0",
