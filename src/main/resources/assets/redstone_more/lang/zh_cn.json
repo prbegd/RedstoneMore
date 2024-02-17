@@ -1,4 +1,5 @@
 {
   "item.redstone_more.example_item": "实例物品",
-  "itemgroup.redstone_more.moreRedstone": "更多红石"
+  "itemgroup.redstone_more.moreRedstone": "更多红石",
+  "item.redstone_more.mob_killer": "杀死生物"
 }

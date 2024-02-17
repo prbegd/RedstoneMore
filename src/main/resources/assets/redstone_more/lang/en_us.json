@@ -1,4 +1,5 @@
 {
   "item.redstone_more.example_item": "Example_Item",
-  "itemgroup.redstone_more.moreRedstone": "MoreRedstone"
+  "itemgroup.redstone_more.moreRedstone": "MoreRedstone",
+  "item.redstone_more.mob_killer": "Mob Killer"
 }

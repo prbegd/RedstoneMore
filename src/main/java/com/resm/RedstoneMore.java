@@ -2,6 +2,8 @@ package com.resm;
 
 import com.resm.registry.ModItemGroup;
 import com.resm.registry.ModItems;
+import com.resm.registry.items.tools.CreativeToolMaterials;
+import com.resm.registry.items.tools.MobKiller;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -23,5 +25,6 @@ public class RedstoneMore implements ModInitializer {
         LOGGER.info("Load");
         ModItemGroup.registerModGroup();//注意要在注册物品前注册物品组
         ModItems.registerModItems();
+        MobKiller.registerModItems();
     }
 }
