@@ -1,15 +1,15 @@
 {
 	"schemaVersion": 1,
 	"id": "redstone_more",
-	"version": "0.0.1-alpha",
+	"version": "${version}",
 	"name": "Redstone More",
-	"description": "This is an description! I will not tell you anything!",
+	"description": "This is a description",
 	"authors": [
 		"xing_ab612"
 	],
 	"contact": {
-		"homepage": "No homepage",
-		"sources": "No Github"
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/xingabc/RedstoneMore"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/redstone_more/icon.png",
