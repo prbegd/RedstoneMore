@@ -3,6 +3,7 @@ package com.resm;
 import com.resm.registry.ModBlocks;
 import com.resm.registry.ModItemGroup;
 import com.resm.registry.ModItems;
+import com.resm.registry.blocks.RedstoneLamp1;
 import com.resm.registry.items.tools.CreativeToolMaterials;
 import com.resm.registry.items.tools.MobKiller;
 import net.fabricmc.api.ModInitializer;
@@ -29,5 +30,6 @@ public class RedstoneMore implements ModInitializer {
         MobKiller.registerModItems();
 
         ModBlocks.registerModBlocks();
+        RedstoneLamp1.registerModBlocks();
     }
 }

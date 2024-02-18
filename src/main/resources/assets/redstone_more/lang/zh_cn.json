@@ -1,9 +1,12 @@
 {
-  "item.redstone_more.example_item": "实例物品",
   "itemgroup.redstone_more.moreRedstone": "更多红石",
+
+  "item.redstone_more.example_item": "实例物品",
   "item.redstone_more.mob_killer": "杀死生物",
   "item.redstone_more.led": "发光二极管",
   "item.redstone_more.red_led": "红色发光二极管",
   "item.redstone_more.green_led": "绿色发光二极管",
-  "item.redstone_more.blue_led": "蓝色发光二极管"
+  "item.redstone_more.blue_led": "蓝色发光二极管",
+
+  "block.redstone_more.redstone_lamp1" : "红石灯（样式1）"
 }
