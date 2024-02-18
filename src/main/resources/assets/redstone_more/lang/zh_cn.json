@@ -8,5 +8,6 @@
   "item.redstone_more.green_led": "绿色发光二极管",
   "item.redstone_more.blue_led": "蓝色发光二极管",
 
-  "block.redstone_more.redstone_lamp1" : "红石灯（样式1）"
+  "block.redstone_more.redstone_lamp1" : "红石灯（样式1）",
+  "block.redstone_more.redstone_lamp2" : "红石灯（样式2）"
 }

@@ -8,5 +8,6 @@
   "item.redstone_more.green_led": "Green LED",
   "item.redstone_more.blue_led": "Blue LED",
 
-  "block.redstone_more.redstone_lamp1" : "Redstone Lamp(Style 1)"
+  "block.redstone_more.redstone_lamp1" : "Redstone Lamp(Style 1)",
+  "block.redstone_more.redstone_lamp2" : "Redstone Lamp(Style 2)"
 }
