@@ -13,6 +13,10 @@ import net.minecraft.util.Identifier;
 public class ModItems {
 
     public static final Item EXAMPLE_ITEM = registerItem("example_item", new Item(new FabricItemSettings()), ModItemGroup.MORE_REDSTONE);
+    public static final Item LED = registerItem("led", new Item(new FabricItemSettings()), ModItemGroup.MORE_REDSTONE);
+    public static final Item RED_LED = registerItem("red_led", new Item(new FabricItemSettings()), ModItemGroup.MORE_REDSTONE);
+    public static final Item GREEN_LED = registerItem("green_led", new Item(new FabricItemSettings()), ModItemGroup.MORE_REDSTONE);
+    public static final Item BLUE_LED = registerItem("blue_led", new Item(new FabricItemSettings()), ModItemGroup.MORE_REDSTONE);
 
     public static Item registerItem(String name, Item item, RegistryKey<ItemGroup>... itemGroups) {
         Item registeredItem = Registry.register(Registries.ITEM, new Identifier(RedstoneMore.MOD_ID, name), item);

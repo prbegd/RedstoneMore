@@ -1,5 +1,6 @@
 package com.resm;
 
+import com.resm.registry.ModBlocks;
 import com.resm.registry.ModItemGroup;
 import com.resm.registry.ModItems;
 import com.resm.registry.items.tools.CreativeToolMaterials;
@@ -26,5 +27,7 @@ public class RedstoneMore implements ModInitializer {
         ModItemGroup.registerModGroup();//注意要在注册物品前注册物品组
         ModItems.registerModItems();
         MobKiller.registerModItems();
+
+        ModBlocks.registerModBlocks();
     }
 }

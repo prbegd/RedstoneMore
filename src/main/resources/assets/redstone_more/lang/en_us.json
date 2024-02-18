@@ -1,5 +1,9 @@
 {
   "item.redstone_more.example_item": "Example_Item",
   "itemgroup.redstone_more.moreRedstone": "MoreRedstone",
-  "item.redstone_more.mob_killer": "Mob Killer"
+  "item.redstone_more.mob_killer": "Mob Killer",
+  "item.redstone_more.led": "LED",
+  "item.redstone_more.red_led": "Red LED",
+  "item.redstone_more.green_led": "Green LED",
+  "item.redstone_more.blue_led": "Blue LED"
 }
