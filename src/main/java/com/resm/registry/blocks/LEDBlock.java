@@ -1,5 +1,6 @@
 package com.resm.registry.blocks;
 
+import com.resm.RedstoneMore;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RedstoneTorchBlock;
@@ -29,13 +30,17 @@ public class LEDBlock extends Block {
     }
     @Override
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(Text.translatable("block.led_block.tooltip"));
-    }
+        tooltip.add(Text.translatable("block.led_block.when_unlit"));
+        tooltip.add(Text.translatable("block.led_block."+ UNLIT_COLOR.));
+        tooltip.add(Text.translatable("block.led_block.when_lit"));
+        tooltip.add(Text.translatable("block.led_block."+ LIT_COLOR));
+    }//物品提示
     public LEDBlock(Settings settings) {
         super(settings);
-        setDefaultState(getDefaultState().with(UNLIT_COLOR, BlockColors.BLACK)
+        setDefaultState(getDefaultState().with(UNLIT_COLOR, BlockColors.UNLIT)
                 .with(LIT_COLOR, BlockColors.LIT).with(LIT, false));//设置默认属性
     }
+    //以下为红石灯搬过来的代码
     @Override
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {

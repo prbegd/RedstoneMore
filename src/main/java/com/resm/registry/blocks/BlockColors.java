@@ -20,7 +20,8 @@ public enum BlockColors implements StringIdentifiable {
     GREEN("green"),
     RED("red"),
     BLACK("black"),
-    LIT("lit");
+    LIT("lit"),
+    UNLIT("unlit");
     private final String name;
 
     BlockColors(String name) {
