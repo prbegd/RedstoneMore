@@ -28,7 +28,7 @@ public class CreativeToolMaterials implements ToolMaterial {
 
     @Override
     public int getEnchantability() {
-        return 2147483647;//2147483647
+        return 2147483647;
     }
 
     @Override
