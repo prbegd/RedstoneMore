@@ -1,6 +1,5 @@
 package com.resm.registry.blocks;
 
-import com.resm.RedstoneMore;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RedstoneTorchBlock;
@@ -8,6 +7,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.state.State;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
@@ -28,23 +28,26 @@ public class LEDBlock extends Block {
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(UNLIT_COLOR, LIT_COLOR, LIT);//注册属性
     }
-    @Override
-    public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
-        tooltip.add(Text.translatable("block.led_block.when_unlit"));
-        tooltip.add(Text.translatable("block.led_block."+ UNLIT_COLOR.));
-        tooltip.add(Text.translatable("block.led_block.when_lit"));
-        tooltip.add(Text.translatable("block.led_block."+ LIT_COLOR));
-    }//物品提示
+
+    //@Override
+    //public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
+    //    tooltip.add(Text.translatable("block.led_block.when_unlit"));
+    //    tooltip.add(Text.translatable("block.led_block." + UNLIT_COLOR));
+    //    tooltip.add(Text.translatable("block.led_block.when_lit"));
+    //    tooltip.add(Text.translatable("block.led_block." + LIT_COLOR));
+    //}//物品提示
+
     public LEDBlock(Settings settings) {
         super(settings);
         setDefaultState(getDefaultState().with(UNLIT_COLOR, BlockColors.UNLIT)
                 .with(LIT_COLOR, BlockColors.LIT).with(LIT, false));//设置默认属性
     }
+
     //以下为红石灯搬过来的代码
     @Override
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState)this.getDefaultState().with(LIT, ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos()));
+        return this.getDefaultState().with(LIT, ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos()));
     }
 
     @Override
@@ -57,15 +60,15 @@ public class LEDBlock extends Block {
             if (bl) {
                 world.scheduleBlockTick(pos, this, 4);
             } else {
-                world.setBlockState(pos, (BlockState)state.cycle(LIT), Block.NOTIFY_LISTENERS);
+                world.setBlockState(pos, state.cycle(LIT), Block.NOTIFY_LISTENERS);
             }
         }
     }
 
     @Override
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (state.get(LIT).booleanValue() && !world.isReceivingRedstonePower(pos)) {
-            world.setBlockState(pos, (BlockState)state.cycle(LIT), Block.NOTIFY_LISTENERS);
+        if (state.get(LIT) && !world.isReceivingRedstonePower(pos)) {
+            world.setBlockState(pos, state.cycle(LIT), Block.NOTIFY_LISTENERS);
         }
     }
 }

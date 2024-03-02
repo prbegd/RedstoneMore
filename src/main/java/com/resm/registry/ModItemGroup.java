@@ -16,8 +16,6 @@ public class ModItemGroup {
     public static final RegistryKey<ItemGroup> MORE_REDSTONE = RegistryKey.of(RegistryKeys.ITEM_GROUP,
             new Identifier(RedstoneMore.MOD_ID,"example"));
     public static void registerModGroup() {
-        RedstoneMore.LOGGER.info("Registering mod item groups for" + RedstoneMore.MOD_ID);
-
         Registry.register(Registries.ITEM_GROUP, MORE_REDSTONE, FabricItemGroup.builder().displayName(
                 Text.translatable("itemgroup.redstone_more.moreRedstone")).icon(()->new
                 ItemStack(ModItems.EXAMPLE_ITEM))//设置组图标

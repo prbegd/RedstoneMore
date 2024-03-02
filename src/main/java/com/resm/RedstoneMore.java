@@ -3,6 +3,7 @@ package com.resm;
 import com.resm.registry.ModBlocks;
 import com.resm.registry.ModItemGroup;
 import com.resm.registry.ModItems;
+import com.resm.registry.blocks.LEDBlock;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -21,9 +22,11 @@ public class RedstoneMore implements ModInitializer {
         // However, some things (like resources) may still be uninitialized.
         // Proceed with mild caution.
 
-        LOGGER.info("Load");
+        LOGGER.info("["+RedstoneMore.MOD_ID+"]Load");
+        LOGGER.debug("["+RedstoneMore.MOD_ID+"]Registering items, item groups, and blocks");
         ModItemGroup.registerModGroup();//注意要在注册物品前注册物品组
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
+        LOGGER.debug("["+RedstoneMore.MOD_ID+"]Registration complete");
     }
 }

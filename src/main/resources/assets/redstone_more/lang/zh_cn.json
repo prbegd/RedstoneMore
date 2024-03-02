@@ -4,10 +4,24 @@
   "item.redstone_more.example_item": "实例物品",
   "item.redstone_more.mob_killer": "杀死生物",
   "item.redstone_more.led": "发光二极管",
-  "item.redstone_more.red_led": "红色发光二极管",
-  "item.redstone_more.green_led": "绿色发光二极管",
+  "item.redstone_more.black_led": "黑色发光二极管",
   "item.redstone_more.blue_led": "蓝色发光二极管",
+  "item.redstone_more.brown_led": "棕色发光二极管",
+  "item.redstone_more.cyan_led": "青色发光二极管",
+  "item.redstone_more.gray_led": "灰色发光二极管",
+  "item.redstone_more.green_led": "绿色发光二极管",
+  "item.redstone_more.light_blue_led": "淡蓝色发光二极管",
+  "item.redstone_more.light_gray_led": "淡灰色发光二极管",
+  "item.redstone_more.lime_led": "黄绿色发光二极管",
+  "item.redstone_more.magenta_led": "品红色发光二极管",
+  "item.redstone_more.orange_led": "橙色发光二极管",
+  "item.redstone_more.pink_led": "粉红色发光二极管",
+  "item.redstone_more.purple_led": "紫色发光二极管",
+  "item.redstone_more.red_led": "红色发光二极管",
+  "item.redstone_more.white_led": "白色发光二极管",
+  "item.redstone_more.yellow_led": "黄色发光二极管",
 
   "block.redstone_more.redstone_lamp1" : "红石灯（样式1）",
-  "block.redstone_more.redstone_lamp2" : "红石灯（样式2）"
+  "block.redstone_more.redstone_lamp2" : "红石灯（样式2）",
+  "block.redstone_more.led_block": "发光二极管块"
 }

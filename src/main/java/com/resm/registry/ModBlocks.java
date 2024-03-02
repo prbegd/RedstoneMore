@@ -14,7 +14,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
-
 public class ModBlocks {
     public static final Block EXAMPLE_BLOCK = registerBlock("example_block", new
             Block(FabricBlockSettings.create().strength(1200.0f)), ModItemGroup.MORE_REDSTONE);
@@ -31,7 +30,5 @@ public class ModBlocks {
         ModItems.registerItem(name, new BlockItem(block, new FabricItemSettings()), itemgroups);
         return Registry.register(Registries.BLOCK, new Identifier(RedstoneMore.MOD_ID, name), block);
     }
-    public static void registerModBlocks() {
-        RedstoneMore.LOGGER.debug("Registering mod blocks for" + RedstoneMore.MOD_ID);
-    }
+    public static void registerModBlocks() {}
 }
