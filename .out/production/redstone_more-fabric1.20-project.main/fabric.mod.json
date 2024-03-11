@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "redstone_more",
+	"version": "${version}",
+	"name": "Redstone More",
+	"description": "This is a description",
+	"authors": [
+		"xing_ab612"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/xingabc/RedstoneMore"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/redstone_more/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.resm.RedstoneMore"
+		],
+		"client": [
+			"com.resm.RedstoneMoreClient"
+		],
+		"fabric-datagen": [
+			"com.resm.RedstoneMoreDataGenerator"
+		]
+	},
+	"mixins": [
+		"redstone_more.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.0",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

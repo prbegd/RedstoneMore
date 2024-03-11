@@ -1,0 +1,27 @@
+{
+  "itemgroup.redstone_more.moreRedstone": "MoreRedstone",
+
+  "item.redstone_more.example_item": "Example_Item",
+  "item.redstone_more.mob_killer": "Mob Killer",
+  "item.redstone_more.led": "LED",
+  "item.redstone_more.black_led": "Black LED",
+  "item.redstone_more.blue_led": "Blue LED",
+  "item.redstone_more.brown_led": "Brown LED",
+  "item.redstone_more.cyan_led": "Cyan LED",
+  "item.redstone_more.gray_led": "Gray LED",
+  "item.redstone_more.green_led": "Green LED",
+  "item.redstone_more.light_blue_led": "Light Blue LED",
+  "item.redstone_more.light_gray_led": "Light Gray LED",
+  "item.redstone_more.lime_led": "Lime LED",
+  "item.redstone_more.magenta_led": "Magenta LED",
+  "item.redstone_more.orange_led": "Orange LED",
+  "item.redstone_more.pink_led": "Pink LED",
+  "item.redstone_more.purple_led": "Purple LED",
+  "item.redstone_more.red_led": "Red LED",
+  "item.redstone_more.white_led": "White LED",
+  "item.redstone_more.yellow_led": "Yellow LED",
+
+  "block.redstone_more.redstone_lamp1" : "Redstone Lamp(Style 1)",
+  "block.redstone_more.redstone_lamp2" : "Redstone Lamp(Style 2)",
+  "block.redstone_more.led_block": "LED Block"
+}
