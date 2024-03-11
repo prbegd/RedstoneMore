@@ -18,7 +18,7 @@ public class ModItemGroup {
     public static void registerModGroup() {
         Registry.register(Registries.ITEM_GROUP, MORE_REDSTONE, FabricItemGroup.builder().displayName(
                 Text.translatable("itemgroup.redstone_more.moreRedstone")).icon(()->new
-                ItemStack(ModItems.EXAMPLE_ITEM))//设置组图标
+                ItemStack(ModItems.SILVER_DUST))//设置组图标
                 .build());
     }
 }

@@ -1,5 +1,6 @@
 package com.resm.registry.blocks;
 
+import net.minecraft.block.BlockState;
 import net.minecraft.block.MapColor;
 import net.minecraft.util.StringIdentifiable;
 
