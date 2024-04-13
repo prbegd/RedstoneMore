@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "redstone_more:item/example_item"
+    "layer0": "redstone_more:item/spanner"
   }
 }

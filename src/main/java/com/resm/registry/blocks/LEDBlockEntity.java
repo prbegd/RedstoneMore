@@ -36,7 +36,7 @@ public class LEDBlockEntity extends BlockEntity {
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
         RedstoneMore.LOGGER.info("------------readNBT");
-        RedstoneMore.LOGGER.info("readnbt"+nbt.getString("lit_color")+"|and|"+nbt.getString("unlit_color"));
+        RedstoneMore.LOGGER.info("readNBT"+nbt.getString("lit_color")+"|and|"+nbt.getString("unlit_color"));
         UNLIT_COLOR = BlockColors.valueOf(nbt.getString("unlit_color"));
         LIT_COLOR = BlockColors.valueOf(nbt.getString("lit_color"));
     }

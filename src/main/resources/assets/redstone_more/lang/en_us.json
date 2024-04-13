@@ -19,6 +19,11 @@
   "item.redstone_more.red_led": "Red LED",
   "item.redstone_more.white_led": "White LED",
   "item.redstone_more.yellow_led": "Yellow LED",
+  "item.redstone_more.spanner": "Spanner",
+
+  "item.redstone_more.mob_killer.tooltip1": "Left-click to kill a mob",
+  "item.redstone_more.mob_killer.tooltip2": "Right-click to remove mobs",
+  "item.redstone_more.mob_killer.msg": "Successfully removed the %s",
 
   "block.redstone_more.redstone_lamp1" : "Redstone Lamp(Style 1)",
   "block.redstone_more.redstone_lamp2" : "Redstone Lamp(Style 2)",

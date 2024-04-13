@@ -13,22 +13,22 @@ public class CreativeToolMaterials implements ToolMaterial {
 
     @Override
     public float getMiningSpeedMultiplier() {
-        return 3.4e38f;
+        return Float.MAX_VALUE;
     }
 
     @Override
     public float getAttackDamage() {
-        return 3.4e38f;
+        return Float.MAX_VALUE;
     }
 
     @Override
     public int getMiningLevel() {
-        return 2147483647;
+        return Integer.MAX_VALUE;
     }
 
     @Override
     public int getEnchantability() {
-        return 2147483647;
+        return Integer.MAX_VALUE;
     }
 
     @Override

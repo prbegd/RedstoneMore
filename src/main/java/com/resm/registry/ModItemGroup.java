@@ -14,7 +14,7 @@ import net.minecraft.util.Identifier;
 
 public class ModItemGroup {
     public static final RegistryKey<ItemGroup> MORE_REDSTONE = RegistryKey.of(RegistryKeys.ITEM_GROUP,
-            new Identifier(RedstoneMore.MOD_ID,"example"));
+            new Identifier(RedstoneMore.MOD_ID,"more_redstone"));
     public static void registerModGroup() {
         Registry.register(Registries.ITEM_GROUP, MORE_REDSTONE, FabricItemGroup.builder().displayName(
                 Text.translatable("itemgroup.redstone_more.moreRedstone")).icon(()->new
