@@ -30,7 +30,7 @@ public class MobKillerItem extends Item {
         if (user.getWorld().isClient) {
             return ActionResult.PASS;
         }
-        entity.remove(Entity.RemovalReason.KILLED);
+        entity.discard();
         user.sendMessage(Text.translatable("item.redstone_more.mob_killer.msg", entity.getName()));
         return ActionResult.SUCCESS;
     }
