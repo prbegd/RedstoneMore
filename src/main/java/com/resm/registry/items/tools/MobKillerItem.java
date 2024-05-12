@@ -1,7 +1,6 @@
-package com.resm.registry.items;
+package com.resm.registry.items.tools;
 
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

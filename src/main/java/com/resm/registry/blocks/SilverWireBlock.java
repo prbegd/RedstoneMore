@@ -1,12 +1,11 @@
 package com.resm.registry.blocks;
 
-import com.resm.RedstoneMore;
 import com.resm.registry.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RedstoneWireBlock;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.decoration.DisplayEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
@@ -15,6 +14,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 
 public class SilverWireBlock extends RedstoneWireBlock {
     public SilverWireBlock(Settings settings) {
@@ -29,11 +29,9 @@ public class SilverWireBlock extends RedstoneWireBlock {
         if (player.getMainHandStack().getItem() == ModItems.SPANNER) {
             NbtCompound text = new NbtCompound();
             text.putString("text", String.valueOf(state.get(POWER)));
-            text.putInt("background", Integer.MAX_VALUE);
             text.putString("billboard", "center");
-            ServerWorld serverWorld = world.getServer().getWorld(world.getRegistryKey());
-            clearText.entity = EntityType.TEXT_DISPLAY.spawn(serverWorld, text, null, pos.up(1), SpawnReason.EVENT, false, false);
-            //new clearText().start();
+            text.putString("alignment", "center");
+            new clearText(text, world.getServer().getWorld(world.getRegistryKey()), pos).start();
             return ActionResult.SUCCESS;
         }
         return super.onUse(state, world, pos, player, hand, hit);
@@ -41,16 +39,21 @@ public class SilverWireBlock extends RedstoneWireBlock {
 }
 
 class clearText extends Thread {
-    static Entity entity;
+    private final DisplayEntity.TextDisplayEntity entity;
 
     @Override
     public void run() {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
+
         entity.discard();
-        RedstoneMore.LOGGER.info("------------------------------------------------------------------------clear");
+    }
+
+    clearText(NbtCompound nbt, ServerWorld serverWorld, BlockPos pos) {
+        this.entity = EntityType.TEXT_DISPLAY.spawn(serverWorld, pos.up(1), SpawnReason.EVENT);
+        this.entity.readNbt(nbt);
     }
 }
