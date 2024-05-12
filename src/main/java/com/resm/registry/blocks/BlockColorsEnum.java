@@ -1,10 +1,8 @@
 package com.resm.registry.blocks;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.MapColor;
 import net.minecraft.util.StringIdentifiable;
 
-public enum BlockColors implements StringIdentifiable {
+public enum BlockColorsEnum implements StringIdentifiable {
     WHITE("white"),
     ORANGE("orange"),
     MAGENTA("magenta"),
@@ -25,7 +23,7 @@ public enum BlockColors implements StringIdentifiable {
     UNLIT("unlit");
     private final String name;
 
-    BlockColors(String name) {
+    BlockColorsEnum(String name) {
         this.name = name;
     }
 

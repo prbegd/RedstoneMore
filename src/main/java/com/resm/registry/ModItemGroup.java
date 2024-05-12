@@ -5,6 +5,7 @@ import com.resm.RedstoneMore;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -18,7 +19,7 @@ public class ModItemGroup {
     public static void registerModGroup() {
         Registry.register(Registries.ITEM_GROUP, MORE_REDSTONE, FabricItemGroup.builder().displayName(
                 Text.translatable("itemgroup.redstone_more.moreRedstone")).icon(()->new
-                ItemStack(ModItems.SILVER_DUST))//设置组图标
+                ItemStack(Items.REDSTONE/*ModItems.SILVER_DUST*/))//设置组图标
                 .build());
     }
 }

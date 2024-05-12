@@ -19,40 +19,34 @@ public class AddItemGroup {
 
 
     public AddItemGroup add(RegistryKey<ItemGroup> itemGroup, Item item, targetMode targetMode) {
-        if (targetMode == AddItemGroup.targetMode.END) {
-            this.itemGroups[addCount] = itemGroup;
-            this.addMode[addCount] = AddItemGroup.targetMode.END;
-            this.addCount++;
-            return this;
-        }
-        this.itemGroups[addCount] = itemGroup;
-        this.items[addCount] = item;
-        this.addMode[addCount] = targetMode;
-        this.addCount++;
+        itemGroups[addCount] = itemGroup;
+        items[addCount] = targetMode == AddItemGroup.targetMode.END ? null : item;
+        addMode[addCount] = targetMode;
+        addCount++;
         return this;
     }
 
     public AddItemGroup add(RegistryKey<ItemGroup> itemGroup) {
-        return this.add(itemGroup, null, targetMode.END);
+        return add(itemGroup, null, targetMode.END);
     }
 
     public int getItemGroupsCount() {
-        return this.addCount;
+        return addCount;
     }
 
     public targetMode getAddMode(int addCount) {
-        return this.addMode[addCount];
+        return addMode[addCount];
     }
 
     public RegistryKey<ItemGroup> getItemGroup(int addCount) {
-        return this.itemGroups[addCount];
+        return itemGroups[addCount];
     }
 
     public Item getItem(int addCount) {
-        if (this.items[addCount] == null) {
+        if (items[addCount] == null) {
             RedstoneMore.LOGGER.warn("The corresponding item is null",
                     new NullPointerException("The corresponding array item is null"));
         }
-        return this.items[addCount];
+        return items[addCount];
     }
 }

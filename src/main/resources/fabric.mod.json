@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "redstone_more",
-	"version": "${version}",
+	"version": "1.0.0",
 	"name": "Redstone More",
 	"description": "This is a description",
 	"authors": [

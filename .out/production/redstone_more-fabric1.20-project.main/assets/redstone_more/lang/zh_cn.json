@@ -19,6 +19,11 @@
   "item.redstone_more.red_led": "红色发光二极管",
   "item.redstone_more.white_led": "白色发光二极管",
   "item.redstone_more.yellow_led": "黄色发光二极管",
+  "item.redstone_more.spanner": "扳手",
+
+  "item.redstone_more.mob_killer.tooltip1": "左键击杀生物",
+  "item.redstone_more.mob_killer.tooltip2": "右键删除生物",
+  "item.redstone_more.mob_killer.msg": "成功删除了%s",
 
   "block.redstone_more.redstone_lamp1" : "红石灯（样式1）",
   "block.redstone_more.redstone_lamp2" : "红石灯（样式2）",
