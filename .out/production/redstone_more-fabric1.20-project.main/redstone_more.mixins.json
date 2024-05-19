@@ -4,8 +4,10 @@
 	"package": "com.resm.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin"
+		"RedstoneMoreMixin"
 	],
+	"client": [],
+	"server": [],
 	"injectors": {
 		"defaultRequire": 1
 	}

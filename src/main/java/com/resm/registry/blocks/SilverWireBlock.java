@@ -3,6 +3,7 @@ package com.resm.registry.blocks;
 import com.resm.registry.ModItems;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RedstoneWireBlock;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.decoration.DisplayEntity;
@@ -31,29 +32,30 @@ public class SilverWireBlock extends RedstoneWireBlock {
             text.putString("text", String.valueOf(state.get(POWER)));
             text.putString("billboard", "center");
             text.putString("alignment", "center");
-            new clearText(text, world.getServer().getWorld(world.getRegistryKey()), pos).start();
+            DisplayEntity.TextDisplayEntity textEntity = EntityType.TEXT_DISPLAY.spawn(world.getServer().getWorld(world.getRegistryKey()), pos.up(1), SpawnReason.COMMAND);
+            textEntity.readNbt(text);
+            new clearText(textEntity).start();
             return ActionResult.SUCCESS;
         }
         return super.onUse(state, world, pos, player, hand, hit);
     }
-}
 
-class clearText extends Thread {
-    private final DisplayEntity.TextDisplayEntity entity;
+    class clearText extends Thread {
+        private final DisplayEntity.TextDisplayEntity entity;
 
-    @Override
-    public void run() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+
+            entity.discard();
         }
 
-        entity.discard();
-    }
-
-    clearText(NbtCompound nbt, ServerWorld serverWorld, BlockPos pos) {
-        this.entity = EntityType.TEXT_DISPLAY.spawn(serverWorld, pos.up(1), SpawnReason.EVENT);
-        this.entity.readNbt(nbt);
+        clearText(DisplayEntity.TextDisplayEntity entity) {
+            this.entity = entity;
+        }
     }
 }

@@ -1,15 +1,16 @@
 {
 	"schemaVersion": 1,
 	"id": "redstone_more",
-	"version": "1.0.0",
+	"version": "2.0.0-snapshot.0",
 	"name": "Redstone More",
-	"description": "This is a description",
+	"description": "Add some redstone and useful blocks and items",
 	"authors": [
 		"xing_ab612"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/xingabc/RedstoneMore"
+		"homepage": "https://github.com/xingabc/RedstoneMore",
+		"sources": "https://github.com/xingabc/RedstoneMore",
+		"issues": "https://github.com/xingabc/RedstoneMore/issues"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/redstone_more/icon.png",
@@ -21,8 +22,14 @@
 		"client": [
 			"com.resm.RedstoneMoreClient"
 		],
+		"server": [
+			"com.resm.RedstoneMoreServer"
+		],
 		"fabric-datagen": [
 			"com.resm.RedstoneMoreDataGenerator"
+		],
+		"modmenu": [
+			"com.resm.registry.mods.ModMenuApiImpl"
 		]
 	},
 	"mixins": [
@@ -32,9 +39,16 @@
 		"fabricloader": ">=0.15.0",
 		"minecraft": "~1.20.1",
 		"java": ">=17",
-		"fabric-api": "*"
+		"fabric-api": "*",
+		"modmenu": ">=7.2.2",
+		"fabric-key-binding-api-v1": "*"
 	},
 	"suggests": {
 		"another-mod": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"update_checker": false
+		}
 	}
 }

@@ -8,4 +8,5 @@ public class RedstoneMoreDataGenerator implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 
     }
+
 }

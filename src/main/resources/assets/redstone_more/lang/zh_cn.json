@@ -27,5 +27,7 @@
 
   "block.redstone_more.redstone_lamp1" : "红石灯（样式1）",
   "block.redstone_more.redstone_lamp2" : "红石灯（样式2）",
-  "block.redstone_more.led_block": "发光二极管块"
+  "block.redstone_more.led_block": "发光二极管块",
+
+  "screen.redstone_more.mod_config_screen": "配置屏幕"
 }
