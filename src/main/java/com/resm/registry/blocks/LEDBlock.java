@@ -109,11 +109,11 @@ public class LEDBlock extends Block implements BlockEntityProvider {
         }
     }
 
-    @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient) {
-            player.sendMessage(Text.literal(state.get(UNLIT_COLOR) + "," + state.get(LIT_COLOR)));
-        }
-        return ActionResult.SUCCESS;
-    }
+//    @Override
+//    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+//        if (!world.isClient) {
+//            player.sendMessage(Text.literal(state.get(UNLIT_COLOR) + "," + state.get(LIT_COLOR)));
+//        }
+//        return ActionResult.SUCCESS;
+//    }
 }

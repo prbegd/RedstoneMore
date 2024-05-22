@@ -1,5 +1,5 @@
 {
-    "parent": "block/redstone_dust_side_alt",
+    "parent": "redstone_more:block/silver_dust_side_alt",
     "textures": {
         "line": "redstone_more:block/silver_dust_line1"
     }
