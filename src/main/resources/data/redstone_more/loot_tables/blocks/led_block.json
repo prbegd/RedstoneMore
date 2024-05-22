@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "redstone_more:led_block",
+          "functions": [
+            {
+              "function": "minecraft:copy_nbt",
+              "source": "block_entity",
+              "ops": [
+                {
+                  "source": "unlit_color",
+                  "target": "BlockEntityTag.unlit_color",
+                  "op": "replace"
+                },
+                {
+                  "source": "lit_color",
+                  "target": "BlockEntityTag.lit_color",
+                  "op": "replace"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
