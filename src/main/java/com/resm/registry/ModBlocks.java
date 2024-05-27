@@ -10,11 +10,14 @@ import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityT
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.enums.Instrument;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
@@ -30,5 +33,54 @@ public class ModBlocks {
     public static final BlockEntityType<LEDBlockEntity> LED_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(RedstoneMore.MOD_ID, "led_block_entity"), FabricBlockEntityTypeBuilder.create(LEDBlockEntity::new, LED_BLOCK).build());
 
     public static void registerModBlocks() {
+    }
+
+    public static void outputBlockStates(String blockName, PlayerEntity player, String[] states, String[] stateNames) {
+        if (stateNames != null) {
+            if (states.length != stateNames.length) {
+                RedstoneMore.LOGGER.warn("The length of block state and block state name is not equal.");
+                return;
+            }
+        }
+        player.sendMessage(Text.literal(blockName + "的方块状态为:"));
+        if (stateNames != null) {
+            for (int i = 0; i < states.length; i++) {
+                player.sendMessage(Text.literal(stateNames[i]).formatted(Formatting.RED)
+                        .append(":")
+                        .append(Text.literal(states[i]).formatted(Formatting.BLUE)));
+            }
+        } else {
+            for (String state : states) {
+                player.sendMessage(Text.literal(state).formatted(Formatting.BLUE));
+            }
+        }
+        player.sendMessage(Text.literal("--------------------"));
+    }
+
+    public static void outputBlockNBTs(String blockName, PlayerEntity player, String[] NBTs, String[] NBTNames) {
+        if (NBTNames != null) {
+            if (NBTs.length != NBTNames.length) {
+                RedstoneMore.LOGGER.warn("The length of block NBT and block NBT name is not equal.");
+                return;
+            }
+        }
+        player.sendMessage(Text.literal(blockName + "的方块NBT为:"));
+        if (NBTNames != null) {
+            for (int i = 0; i < NBTs.length; i++) {
+                player.sendMessage(Text.literal(NBTNames[i]).formatted(Formatting.RED)
+                        .append(":")
+                        .append(Text.literal(NBTs[i]).formatted(Formatting.BLUE)));
+            }
+        } else {
+            for (String state : NBTs) {
+                player.sendMessage(Text.literal(state).formatted(Formatting.BLUE));
+            }
+        }
+        player.sendMessage(Text.literal("--------------------"));
+    }
+
+    public static void outputBlockStatesAndNBTs(String blockName, PlayerEntity player, String[] elements, String[] elementNames) {
+        outputBlockStates(blockName, player, elements, elementNames);
+        outputBlockNBTs(blockName, player, elements, elementNames);
     }
 }

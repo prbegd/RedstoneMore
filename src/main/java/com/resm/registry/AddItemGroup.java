@@ -33,8 +33,8 @@ public class AddItemGroup {
      * @return 要添加物品的实例
      * @see #registerBlock(String, Block, AddItemGroup)
      */
-    public static Item registerItem(String name, Item item, AddItemGroup itemGroups) {
-        Item registeredItem = Registry.register(Registries.ITEM, new Identifier(RedstoneMore.MOD_ID, name), item);
+    public static <T extends Item> T registerItem(String name, T item, AddItemGroup itemGroups) {
+        T registeredItem = Registry.register(Registries.ITEM, new Identifier(RedstoneMore.MOD_ID, name), item);
         for (int i = 0; i < itemGroups.getAddCount(); i++) {
             int I = i;
             switch (itemGroups.getAddMode(i)) {
@@ -59,7 +59,7 @@ public class AddItemGroup {
      * @return 要添加方块的实例
      * @see #registerItem(String, Item, AddItemGroup)
      */
-    public static Block registerBlock(String name, Block block, AddItemGroup itemGroups) {
+    public static <T extends Block> T registerBlock(String name, T block, AddItemGroup itemGroups) {
         registerItem(name, new BlockItem(block, new FabricItemSettings()), itemGroups);
         return Registry.register(Registries.BLOCK, new Identifier(RedstoneMore.MOD_ID, name), block);
     }
@@ -130,7 +130,6 @@ public class AddItemGroup {
         return itemGroups[addCount];
     }
 
-    @Nullable
     public Item getItem(int addCount) {
         if (items[addCount] == null) {
             RedstoneMore.LOGGER.warn("The corresponding item is null");

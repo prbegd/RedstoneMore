@@ -1,5 +1,6 @@
 package com.resm.registry.blocks;
 
+import com.resm.registry.ModBlocks;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -47,16 +48,15 @@ public class LEDBlock extends Block implements BlockEntityProvider {
     public void appendTooltip(ItemStack itemStack, BlockView world, List<Text> tooltip, TooltipContext tooltipContext) {
         NbtCompound nbt = BlockItem.getBlockEntityNbt(itemStack);
         if (nbt == null) {
-            tooltip.add(Text.translatable("item.led_block.when_unlit").formatted(Formatting.GRAY));
-            tooltip.add(Text.translatable("item.led_block.UNLIT").formatted(Formatting.BLUE, Formatting.ITALIC));
-            tooltip.add(Text.translatable("item.led_block.when_lit").formatted(Formatting.GRAY));
-            tooltip.add(Text.translatable("item.led_block.LIT").formatted(Formatting.BLUE, Formatting.ITALIC));
-        } else {
-            tooltip.add(Text.translatable("item.led_block.when_unlit").formatted(Formatting.GRAY));
-            tooltip.add(Text.translatable("item.led_block." + nbt.getString("unlit_color")).formatted(Formatting.BLUE, Formatting.ITALIC));
-            tooltip.add(Text.translatable("item.led_block.when_lit").formatted(Formatting.GRAY));
-            tooltip.add(Text.translatable("item.led_block." + nbt.getString("lit_color")).formatted(Formatting.BLUE, Formatting.ITALIC));
+            nbt = new NbtCompound();
+            nbt.putString("lit_color", BlockColorsEnum.LIT.name());
+            nbt.putString("unlit_color", BlockColorsEnum.UNLIT.name());
+            BlockItem.setBlockEntityNbt(itemStack, ModBlocks.LED_BLOCK_ENTITY, nbt);
         }
+        tooltip.add(Text.translatable("item.led_block.led_block.tooltip.when_unlit").formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable("item.led_block.led_block.tooltip." + nbt.getString("unlit_color")).formatted(Formatting.BLUE, Formatting.ITALIC));
+        tooltip.add(Text.translatable("item.led_block.led_block.tooltip.when_lit").formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable("item.led_block.led_block.tooltip." + nbt.getString("lit_color")).formatted(Formatting.BLUE, Formatting.ITALIC));
     }
 
     @Override
@@ -112,7 +112,15 @@ public class LEDBlock extends Block implements BlockEntityProvider {
 //    @Override
 //    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 //        if (!world.isClient) {
-//            player.sendMessage(Text.literal(state.get(UNLIT_COLOR) + "," + state.get(LIT_COLOR)));
+//            String[] states = {
+//                    state.get(UNLIT_COLOR).toString(),
+//                    state.get(LIT_COLOR).toString()
+//            };
+//            String[] stateNames = {
+//                    "unlit_color",
+//                    "lit_color"
+//            };
+//            ModBlocks.outputBlockStatesAndNBTs("led_block", player, states, stateNames);
 //        }
 //        return ActionResult.SUCCESS;
 //    }

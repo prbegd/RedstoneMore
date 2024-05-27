@@ -1,6 +1,7 @@
 package com.resm.registry;
 
 import com.resm.registry.items.LEDItems;
+import com.resm.registry.items.tools.DebugToolItem;
 import com.resm.registry.items.tools.MobKillerItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.AliasedBlockItem;
@@ -15,6 +16,7 @@ public class ModItems {
     public static final Item SILVER_INGOT = AddItemGroup.registerItem("silver_ingot", new Item(new FabricItemSettings()), new AddItemGroup(1).add(ItemGroups.INGREDIENTS, Items.GOLD_INGOT, AddItemGroup.TargetModeEnum.AFTER));
     public static final Item SILVER_NUGGET = AddItemGroup.registerItem("silver_nugget", new Item(new FabricItemSettings()), new AddItemGroup(1).add(ItemGroups.INGREDIENTS, Items.GOLD_NUGGET, AddItemGroup.TargetModeEnum.AFTER));
     public static final Item SPANNER = AddItemGroup.registerItem("spanner", new Item(new FabricItemSettings().maxCount(1)), new AddItemGroup(2).add(ModItemGroups.MORE_REDSTONE).add(ItemGroups.TOOLS));
+    public static final Item DEBUG_TOOL = AddItemGroup.registerItem("debug_tool", new DebugToolItem(new FabricItemSettings()), new AddItemGroup(2).add(ModItemGroups.MORE_REDSTONE).add(ItemGroups.OPERATOR));
 
     public static void registerModItems() {
         LEDItems.registerLEDItems();

@@ -23,13 +23,10 @@ public class RedstoneMore implements ModInitializer {
      */
     @Override
     public void onInitialize() {
-        LOGGER.info("[" + RedstoneMore.MOD_ID + "]Load");
-        LOGGER.debug("[" + RedstoneMore.MOD_ID + "]Registering items, item groups, and blocks");
-        ModItemGroups.registerModItemGroup();//注意要在注册物品前注册物品组
+        LOGGER.info("Load");
+        //注意要在注册物品前注册物品组
+        ModItemGroups.registerModItemGroup();
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
-        LOGGER.debug("[" + RedstoneMore.MOD_ID + "]Registration complete");
-
-
     }
 }
