@@ -108,20 +108,4 @@ public class LEDBlock extends Block implements BlockEntityProvider {
             }
         }
     }
-
-//    @Override
-//    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-//        if (!world.isClient) {
-//            String[] states = {
-//                    state.get(UNLIT_COLOR).toString(),
-//                    state.get(LIT_COLOR).toString()
-//            };
-//            String[] stateNames = {
-//                    "unlit_color",
-//                    "lit_color"
-//            };
-//            ModBlocks.outputBlockStatesAndNBTs("led_block", player, states, stateNames);
-//        }
-//        return ActionResult.SUCCESS;
-//    }
 }

@@ -48,6 +48,7 @@
   "block.redstone_more.redstone_lamp1" : "Redstone Lamp(Style 1)",
   "block.redstone_more.redstone_lamp2" : "Redstone Lamp(Style 2)",
   "block.redstone_more.led_block": "LED Block",
+  "block.redstone_more.copper_bulb": "Copper Bulb",
 
   "screen.redstone_more.mod_config_screen": "Configure screen"
 }

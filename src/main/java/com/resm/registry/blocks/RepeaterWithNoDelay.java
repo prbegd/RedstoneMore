@@ -1,24 +1,15 @@
 package com.resm.registry.blocks;
 
 import net.minecraft.block.*;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.DirectionProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
-public class Repeater_With_No_Delay extends AbstractRedstoneGateBlock {
-    public Repeater_With_No_Delay(Settings settings) {
+public class RepeaterWithNoDelay extends AbstractRedstoneGateBlock {
+    public RepeaterWithNoDelay(Settings settings) {
         super(settings);
         setDefaultState(getDefaultState().with(POWERED, false));
         //.with(FACING, Direction.NORTH))

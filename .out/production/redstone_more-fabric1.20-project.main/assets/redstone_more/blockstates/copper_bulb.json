@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "lit=false,powered=true": { "model": "redstone_more:block/copper_bulb_powered"},
+    "lit=false,powered=false": { "model": "redstone_more:block/copper_bulb"},
+    "lit=true,powered=true": { "model": "redstone_more:block/copper_bulb_lit_powered"},
+    "lit=true,powered=false": { "model": "redstone_more:block/copper_bulb_lit"}
+  }
+}

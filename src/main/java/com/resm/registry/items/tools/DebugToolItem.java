@@ -87,9 +87,9 @@ public class DebugToolItem extends Item {
         String entityName = entity.getName().getString();
         String entityType = entity.getType().getName().getString();
         user.sendMessage(Text.literal(entityName).append("'s data:"));
-        user.sendMessage(Text.literal("Entity type:").append(entityType).formatted(Formatting.BLUE).append("(").append(entityId).append(")"));
-        user.sendMessage(Text.literal("UUID:").append(Text.literal(entity.getUuidAsString()).formatted(Formatting.BLUE)));
-        user.sendMessage(Text.literal(""));
+        user.sendMessage(Text.literal("Entity type:").formatted(Formatting.LIGHT_PURPLE).append(Text.literal(entityType).formatted(Formatting.BLUE).append("(").append(entityId).append(")")));
+        user.sendMessage(Text.literal("UUID:").formatted(Formatting.LIGHT_PURPLE).append(Text.literal(entity.getUuidAsString()).formatted(Formatting.BLUE)));
+        //user.sendMessage(Text.literal(entity.getDisplayName());
         return ActionResult.SUCCESS;
     }
 
