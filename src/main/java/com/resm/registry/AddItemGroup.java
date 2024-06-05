@@ -38,12 +38,12 @@ public class AddItemGroup {
         for (int i = 0; i < itemGroups.getAddCount(); i++) {
             int I = i;
             switch (itemGroups.getAddMode(i)) {
-                case END -> ItemGroupEvents.modifyEntriesEvent(itemGroups.getItemGroup(i))
-                        .register(entries -> entries.add(registeredItem));
-                case AFTER -> ItemGroupEvents.modifyEntriesEvent(itemGroups.getItemGroup(i))
-                        .register(entries -> entries.addAfter(itemGroups.getItem(I), registeredItem));
-                case BEFORE -> ItemGroupEvents.modifyEntriesEvent(itemGroups.getItemGroup(i))
-                        .register(entries -> entries.addBefore(itemGroups.getItem(I), registeredItem));
+                case END ->
+                        ItemGroupEvents.modifyEntriesEvent(itemGroups.getItemGroup(i)).register(entries -> entries.add(registeredItem));
+                case AFTER ->
+                        ItemGroupEvents.modifyEntriesEvent(itemGroups.getItemGroup(i)).register(entries -> entries.addAfter(itemGroups.getItem(I), registeredItem));
+                case BEFORE ->
+                        ItemGroupEvents.modifyEntriesEvent(itemGroups.getItemGroup(i)).register(entries -> entries.addBefore(itemGroups.getItem(I), registeredItem));
             }
 
         }
@@ -64,38 +64,12 @@ public class AddItemGroup {
         return Registry.register(Registries.BLOCK, new Identifier(RedstoneMore.MOD_ID, name), block);
     }
 
-    /**
-     * 用于决定添加物品到哪里。
-     */
-    public enum TargetModeEnum {
-        /**
-         * 将物品添加在指定的物品后
-         */
-        AFTER,
-        /**
-         * 将物品添加在指定的物品前
-         */
-        BEFORE,
-        /**
-         * 将物品添加到物品组的最后
-         */
-        END
+    private enum TargetModeEnum {
+        AFTER, BEFORE, END
 
     }
 
-    /**
-     * 用于添加物品到物品组。需要一个AddItemGroup的实例以修改其中的值。
-     *
-     * @param itemGroup 决定添加到哪一个物品组
-     * @param item 决定targetMode为{@code TargetModeEnum.AFTER}或{@code TargetModeEnum.BEFORE}时指定的物品。如果{@code targetMode}为{@code TargetModeEnum.END},请写{@code null}。如果所指定的物品不在
-     *             {@code itemGroup}所指定的物品组中,则{@link #registerItem(String, Item, AddItemGroup)}或
-     *             {@link #registerBlock(String, Block, AddItemGroup)}会将物品添加到物品组的末尾。
-     * @param targetMode 决定将物品添加在物品组的哪里,是TargetModeEnum的枚举值。
-     * @return AddItemGroup实例
-     *
-     * @see #add(RegistryKey)
-     */
-    public AddItemGroup add(RegistryKey<ItemGroup> itemGroup, Item item, TargetModeEnum targetMode) {
+    private AddItemGroup add(RegistryKey<ItemGroup> itemGroup, Item item, TargetModeEnum targetMode) {
         if (addIndex >= addCount) {
             RedstoneMore.LOGGER.error("The length of the added item group exceeds the specified length of the item group to be added.");
             throw new IndexOutOfBoundsException("The length of the added item group exceeds the specified length of the item group to be added.");
@@ -112,10 +86,19 @@ public class AddItemGroup {
      *
      * @param itemGroup 决定添加到哪一个物品组
      * @return AddItemGroup实例
-     * @see #add(RegistryKey, Item, TargetModeEnum)
+     * @see #addAfter(RegistryKey, Item)
+     * @see #addBefore(RegistryKey, Item)
      */
     public AddItemGroup add(RegistryKey<ItemGroup> itemGroup) {
         return add(itemGroup, null, TargetModeEnum.END);
+    }
+
+    public <T extends Item> AddItemGroup addAfter(RegistryKey<ItemGroup> itemGroup, T item) {
+        return add(itemGroup, item, TargetModeEnum.AFTER);
+    }
+
+    public <T extends Item> AddItemGroup addBefore(RegistryKey<ItemGroup> itemGroup, T item) {
+        return add(itemGroup, item, TargetModeEnum.BEFORE);
     }
 
     public int getAddCount() {

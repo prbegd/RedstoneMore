@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -15,10 +14,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
@@ -31,8 +27,8 @@ import java.util.List;
 
 public class LEDBlock extends Block implements BlockEntityProvider {
     public static final BooleanProperty LIT = RedstoneTorchBlock.LIT;
-    public static final EnumProperty UNLIT_COLOR = EnumProperty.of("unlit_color", BlockColorsEnum.class);
-    public static final EnumProperty LIT_COLOR = EnumProperty.of("lit_color", BlockColorsEnum.class);
+    public static final EnumProperty<BlockColorsEnum> UNLIT_COLOR = EnumProperty.of("unlit_color", BlockColorsEnum.class);
+    public static final EnumProperty<BlockColorsEnum> LIT_COLOR = EnumProperty.of("lit_color", BlockColorsEnum.class);
 
     public LEDBlock(FabricBlockSettings settings) {
         super(settings);
@@ -101,10 +97,10 @@ public class LEDBlock extends Block implements BlockEntityProvider {
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (blockEntity instanceof LEDBlockEntity ledBlockEntity) {
             if (ledBlockEntity.getUNLIT_COLOR() != state.get(UNLIT_COLOR)) {
-                ledBlockEntity.setUNLIT_COLOR((BlockColorsEnum) state.get(UNLIT_COLOR));
+                ledBlockEntity.setUNLIT_COLOR(state.get(UNLIT_COLOR));
             }
             if (ledBlockEntity.getLIT_COLOR() != state.get(LIT_COLOR)) {
-                ledBlockEntity.setLIT_COLOR((BlockColorsEnum) state.get(LIT_COLOR));
+                ledBlockEntity.setLIT_COLOR(state.get(LIT_COLOR));
             }
         }
     }

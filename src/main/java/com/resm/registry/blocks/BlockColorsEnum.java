@@ -28,11 +28,11 @@ public enum BlockColorsEnum implements StringIdentifiable {
     }
 
     public String toString() {
-        return this.name;
+        return name;
     }
 
     @Override
     public String asString() {
-        return this.name;
+        return name;
     }
 }

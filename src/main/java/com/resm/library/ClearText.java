@@ -1,4 +1,4 @@
-package com.resm.registry.blocks;
+package com.resm.library;
 
 import net.minecraft.entity.decoration.DisplayEntity;
 public class ClearText extends Thread {
@@ -15,7 +15,7 @@ public class ClearText extends Thread {
         entity.discard();
     }
 
-    ClearText(DisplayEntity.TextDisplayEntity entity) {
+    public ClearText(DisplayEntity.TextDisplayEntity entity) {
         this.entity = entity;
     }
 }

@@ -1,34 +1,35 @@
-package com.resm.registry.blocks;
+package com.resm.registry.items.tools;
 
 import com.resm.library.ClearText;
-import com.resm.registry.ModItems;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RedstoneWireBlock;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.decoration.DisplayEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemUsageContext;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtDouble;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class SilverWireBlock extends RedstoneWireBlock {
-    public SilverWireBlock(Settings settings) {
+public class SpannerItem extends Item {
+    public SpannerItem(Settings settings) {
         super(settings);
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (world.isClient) {
-            return ActionResult.CONSUME;
-        }
-        if (player.getMainHandStack().getItem() == ModItems.SPANNER) {
+    public ActionResult useOnBlock(ItemUsageContext context) {
+        World world = context.getWorld();
+        if (world.isClient) return ActionResult.CONSUME;
+        BlockPos pos = context.getBlockPos();
+        BlockState state = world.getBlockState(pos);
+        Block block = state.getBlock();
+        if (block instanceof RedstoneWireBlock) {
             NbtCompound nbt = new NbtCompound();
-            nbt.putString("text", String.valueOf(state.get(POWER)));
+            nbt.putString("text", String.valueOf(state.get(RedstoneWireBlock.POWER)));
             nbt.putString("billboard", "center");
             nbt.putString("alignment", "center");
             DisplayEntity.TextDisplayEntity entity = EntityType.TEXT_DISPLAY.spawn(world.getServer().getWorld(world.getRegistryKey()), null, null, pos.up(1), null, true, false);
@@ -41,6 +42,6 @@ public class SilverWireBlock extends RedstoneWireBlock {
             new ClearText(entity).start();
             return ActionResult.SUCCESS;
         }
-        return super.onUse(state, world, pos, player, hand, hit);
+        return ActionResult.PASS;
     }
 }
